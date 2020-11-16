@@ -81,4 +81,4 @@ The origin setting will only be applied when a dapp is connecting to from outsid
 
 ### Notes
 
-Forked and pached from the repo https://github.com/floating/eth-provider
+Based from : https://github.com/floating/eth-provider
