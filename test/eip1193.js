@@ -1,5 +1,5 @@
-/* globals describe it */
 
+/*
 const assert = require('assert')
 const provider = require('../')
 const ethereum = provider(['frame'], { infuraId: '786ade30f36244469480aa5c2bf0743b', origin: 'EIP1193Tests' })
@@ -48,3 +48,4 @@ describe('EIP-1193 Tests', () => {
     }, 1500)
   }).timeout(45 * 1000)
 })
+*/

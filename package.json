@@ -1,11 +1,11 @@
 {
   "name": "cypress-ethereum-provider",
-  "version": "0.4.1",
+  "version": "0.1.0",
   "description": "A Universal Ethereum Provider for Testing",
   "browser": "browser.js",
   "main": "node.js",
   "scripts": {
-    "test": "standard --fix && npm run test:web3:v0 && npm run test:web3:v1 && npm run test:frame && npm run test:endpoints && npm run test:eip1193",
+    "test": "standard --fix && npm run test:web3:v0 && npm run test:web3:v1 && npm run test:endpoints && npm run test:eip1193",
     "test:web3": "npm run test:web3:v0 && npm run test:web3:latest",
     "test:web3:v0": "npm install web3@0.20.7 && mocha test/web3-v0.x.js",
     "test:web3:v1": "npm install web3@1.2.8 && mocha test/web3-v1.x.js",
@@ -15,7 +15,8 @@
     "test:eip1193": "mocha test/eip1193.js",
     "test:ipc": "mocha test/ipc.js",
     "test:all": "mocha",
-    "prepublishOnly": "npm run test"
+    "prepublishOnly": "npm run test",
+    "bili": "bili --format esm-min --format cjs-min"
   },
   "author": {
     "name": "Daniel",
@@ -24,6 +25,7 @@
   "license": "GPL-3.0",
   "repository": "github:damarnez/cypress-ethereum-provider",
   "dependencies": {
+    "bili": "^5.0.5",
     "oboe": "2.1.5",
     "uuid": "8.3.0",
     "ws": "7.3.1",

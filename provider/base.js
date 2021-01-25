@@ -21,6 +21,7 @@ class EthereumProvider extends EventEmitter {
     this.subscriptions = []
     this.connection = connection
     this.fakeAccounts = []
+    this.chainId = 0
     this.connection.on('connect', () => this.checkConnection())
     this.connection.on('close', () => this.emit('close'))
     this.connection.on('payload', payload => {
@@ -124,6 +125,11 @@ class EthereumProvider extends EventEmitter {
         resolve(this.fakeAccounts[0])
       })
     }
+    if (method === 'eth_chainId' && this.chainId !== 0) {
+      return new Promise((resolve, reject) => {
+        resolve(this.chainId)
+      })
+    }
 
     // Regular flow
     return new Promise((resolve, reject) => {
@@ -213,6 +219,10 @@ class EthereumProvider extends EventEmitter {
     if (accounts && accounts.length > 0) {
       this.fakeAccounts = accounts
     }
+  }
+
+  setChainId(id) {
+    this.chainId = id
   }
 }
 
