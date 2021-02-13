@@ -5,6 +5,7 @@ class EthereumProvider extends EventEmitter {
     super()
     this.enable = this.enable.bind(this)
     this.setFakeAccounts = this.setFakeAccounts.bind(this)
+    this.setChainId = this.setChainId.bind(this)
     this._send = this._send.bind(this)
     this.send = this.send.bind(this)
     this._sendBatch = this._sendBatch.bind(this)

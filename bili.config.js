@@ -1,7 +1,8 @@
 
-
 const config = {
-  input: './browser.js'
+  presets: ['bili/babel'],
+  input: './bundle.js',
+  browserslist: ['chrome 62']
 }
 
 export default config

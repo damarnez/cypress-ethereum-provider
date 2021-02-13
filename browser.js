@@ -18,7 +18,7 @@ const connections = {
   http: require('./connections/http')(XHR)
 }
 
-module.exports = (targets, options) => {
+const CypressEthereumProvider = (targets, options) => {
   if (targets && !Array.isArray(targets) && typeof targets === 'object' && !options) {
     options = targets
     targets = undefined
@@ -32,3 +32,5 @@ module.exports = (targets, options) => {
 
   return provider(connections, resolve(targets, sets), options)
 }
+module.exports = CypressEthereumProvider;
+window.CypressEthereumProvider = CypressEthereumProvider;

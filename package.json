@@ -1,8 +1,8 @@
 {
   "name": "cypress-ethereum-provider",
-  "version": "0.1.0",
+  "version": "0.1.6",
   "description": "A Universal Ethereum Provider for Testing",
-  "browser": "browser.js",
+  "browser": "/dist/bundle.umd.min.js",
   "main": "node.js",
   "scripts": {
     "test": "standard --fix && npm run test:web3:v0 && npm run test:web3:v1 && npm run test:endpoints && npm run test:eip1193",
@@ -15,8 +15,9 @@
     "test:eip1193": "mocha test/eip1193.js",
     "test:ipc": "mocha test/ipc.js",
     "test:all": "mocha",
-    "prepublishOnly": "npm run test",
-    "bili": "bili --format esm-min --format cjs-min"
+    "prepublishOnly": "npm run build",
+    "build": "npm run browserify && bili --format esm-min --format cjs-min --format umd-min --target browser",
+    "browserify": "browserify browser.js -o bundle.js"
   },
   "author": {
     "name": "Daniel",
@@ -25,13 +26,26 @@
   "license": "GPL-3.0",
   "repository": "github:damarnez/cypress-ethereum-provider",
   "dependencies": {
-    "bili": "^5.0.5",
     "oboe": "2.1.5",
     "uuid": "8.3.0",
     "ws": "7.3.1",
     "xhr2-cookies": "1.1.0"
   },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
   "devDependencies": {
+    "bili": "^5.0.5",
+    "browserify": "^17.0.0",
     "mocha": "8.1.3",
     "standard": "14.3.4",
     "web3": "^1.2.8"
